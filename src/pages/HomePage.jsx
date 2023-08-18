@@ -15,8 +15,18 @@ const HomePage = () => {
 
   return (
     <div className="main">
-      <div className="game" onClick={handleGameClick}></div>
-      <div className="chatbot" onClick={handleChatbotClick}></div>
+      <div className="top-bar"></div>
+      <div className="options">
+        <div className="option-1">
+          <div className="game" onClick={handleGameClick}></div>
+          <h1>Games</h1>
+        </div>
+        <div className="option-1">
+          <div className="chatbot" onClick={handleGameClick}></div>
+          <h1>Chatbot</h1>
+        </div>
+      </div>
+      <div className="bottom-bar"></div>
     </div>
   );
 };

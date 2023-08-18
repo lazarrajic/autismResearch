@@ -1,26 +1,18 @@
 import React from "react";
 import Login from "./pages/Login";
-import HomePage from "./pages/HomePage";
 import Navbar from "./components/Navbar";
-import Games from "./pages/Games";
-import Chatbot from "./pages/Chatbot";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  useLocation,
-} from "react-router-dom";
+import Footer from "./components/Footer";
+import AppRoutes from "./AppRoutes"; // Import the AppRoutes component
+
+import { BrowserRouter as Router } from "react-router-dom";
 
 function App() {
   return (
     <div>
       <Router>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/games" element={<Games />} />
-          <Route path="/chatbot" element={<Chatbot />} />
-        </Routes>
+        {/* <Navbar /> */}
+        <AppRoutes />
+        {/* <Footer /> */}
       </Router>
     </div>
   );

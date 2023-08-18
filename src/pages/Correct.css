@@ -1,0 +1,36 @@
+.correct-main {
+  background-color: #c7d6f4;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  height: 100vh;
+  width: 100vw;
+  align-items: center;
+  justify-content: center;
+}
+
+.first-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+}
+
+.second-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+}
+
+.correct-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.next-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
