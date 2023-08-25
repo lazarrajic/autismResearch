@@ -1,7 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import "./EmotionGame.css";
-import emotiongameimage from "../image/emotiongameimage.png";
+import birthday from "../../src/image/birthday.png";
+import aquarium from "../../src/image/aquarium.png";
+import cinema from "../../src/image/cinema.png";
+import ocean from "../../src/image/ocean.jpg";
+import park from "../../src/image/park.jpeg";
+import readingbook from "../../src/image/readingbook.jpg";
+import swimming from "../../src/image/swimming.jpg";
+import tiger from "../../src/image/tiger.jpg";
+import toys from "../../src/image/toys.jpg";
 import { FaArrowAltCircleLeft } from "react-icons/fa";
 
 const EmotionGame = () => {
@@ -10,10 +18,25 @@ const EmotionGame = () => {
   // Define the questions
   const questions = [
     {
-      image: emotiongameimage,
-      text: "Today my mom took me to the playground and bought me my favorite ice-cream. I was feeling the emotion named ....",
-      correctEmotion: "joy",
+      image: birthday,
+      text: "Today is my birthday. I am going to have a big birthday party with my friends. I am looking forward to it and I feel very… Select the correct feeling",
+      correctEmotion: "Exited",
     },
+    {
+      image: aquarium,
+      text: "Today I am going to the aquarium with my sister. I look forward to see so many water animals. I feel very… Select the correct feeling",
+      correctEmotion: "Exited",
+    },
+    {
+      image: cinema,
+      text: "Today I will go to the cinema to watch my favorite cartoon. I feel very… Select the correct feeling",
+      correctEmotion: "Exited",
+    },
+
+
+
+
+
     {
       image: "../../public/images/rain.png",
       text: "It was raining all day and I couldn't go outside to play with my friends. I was feeling the emotion named ....",
@@ -40,20 +63,7 @@ const EmotionGame = () => {
 
   const handleBackClick = () => {
     setScore(0);
-    navigate("/games");
-  };
-
-  const handleJoyClick = () => {
-    if (currentQuestion.correctEmotion === "joy") {
-      setScore(score + 1);
-      navigate("/correct", {
-        state: { emotion: currentQuestion.correctEmotion },
-      });
-    } else {
-      navigate("/incorrect", {
-        state: { emotion: currentQuestion.correctEmotion },
-      });
-    }
+    navigate("/");
   };
 
   const handleSadnessClick = () => {
@@ -82,6 +92,19 @@ const EmotionGame = () => {
     }
   };
 
+  const handleExcitedClick = () => {
+    if (currentQuestion.correctEmotion === "EXCITED") {
+      setScore(score + 1);
+      navigate("/correct", {
+        state: { emotion: currentQuestion.correctEmotion },
+      });
+    } else {
+      navigate("/incorrect", {
+        state: { emotion: currentQuestion.correctEmotion },
+      });
+    }
+  };
+
   return (
     <div className="emotion-main">
       <div className="emotion-top-bar">
@@ -99,8 +122,8 @@ const EmotionGame = () => {
       </div>
       <div className="emotion-options">
         <div className="option-choice">
-          <div className="happy" onClick={handleJoyClick}></div>
-          <h3 style={{ margin: "0" }}>JOY</h3>
+          <div className="excited" onClick={handleExcitedClick}></div>
+          <h3 style={{ margin: "0" }}>EXCITED</h3>
         </div>
         <div className="option-choice">
           <div className="sad" onClick={handleSadnessClick}></div>

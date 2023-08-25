@@ -1,7 +1,7 @@
 import React from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import HomePage from "./pages/HomePage";
-import Games from "./pages/Games";
+import EmotionLearningGame from "./pages/EmotionLearningGame";
 import Chatbot from "./pages/Chatbot";
 import EmotionGame from "./pages/EmotionGame";
 import Correct from "./pages/Correct";
@@ -16,7 +16,7 @@ const AppRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
-      <Route path="/games" element={<Games />} />
+      <Route path="/EmotionLearningGame" element={<EmotionLearningGame />} />
       <Route path="/chatbot" element={<Chatbot />} />
       <Route path="/emotiongame" element={<EmotionGame />} />
       <Route path="/correct" element={<Correct emotion={emotion} />} />
