@@ -21,7 +21,7 @@
 
 .emotion-picture {
   background-color: #fff;
-  height: 300px;
+  height: 50%;
   width: 15%;
   margin-bottom: -50px;
   /* background-image: url("../../public/images/emotiongameimage.png"); */
@@ -33,7 +33,7 @@
 
 .emotion-picture img {
   max-width: 100%;
-  height: auto;
+  height: 100%;
 }
 
 .emotion-description {
@@ -62,7 +62,7 @@
   width: 100%;
 }
 
-.happy {
+.excited {
   display: flex;
   flex-direction: column;
   width: 40%;
@@ -73,7 +73,7 @@
   border-radius: 50%;
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  background-image: url("../../public/images/happyPic.png");
+  background-image: url("../../public/images/happyEmotion.png");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;

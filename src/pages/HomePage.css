@@ -38,8 +38,7 @@
 
 .options {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  flex-direction: row;
+  grid-template-columns: 1fr 1fr 1fr; 
   justify-content: center;
   align-items: center;
   height: 50%;
@@ -47,7 +46,7 @@
   width: 100vw;
 }
 
-.game {
+.emotins_game {
   display: flex;
   flex-direction: column;
   width: 50%;
@@ -58,7 +57,7 @@
   border-radius: 50%;
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  background-image: url("../../public/images/emojis.webp");
+  background-image: url("../../public/images/wheel.webp");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -85,6 +84,24 @@
   background-image: url("../../public/images/aipic.png");
   background-repeat: no-repeat;
   background-size: contain;
+  background-position: center;
+  cursor: pointer;
+}
+
+.quiz {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: 50%;
+  justify-content: center;
+  margin: 2%;
+  padding: 2%;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  background-image: url("../../public/images/quiz.png");
+  background-repeat: no-repeat;
+  background-size: cover;
   background-position: center;
   cursor: pointer;
 }
