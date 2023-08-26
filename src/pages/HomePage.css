@@ -38,7 +38,7 @@
 
 .options {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr; 
+  grid-template-columns: 1fr 1fr 1fr;
   justify-content: center;
   align-items: center;
   height: 50%;
@@ -46,7 +46,7 @@
   width: 100vw;
 }
 
-.emotins_game {
+.emotion-game {
   display: flex;
   flex-direction: column;
   width: 50%;
@@ -59,7 +59,7 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   background-image: url("../../public/images/wheel.webp");
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
   background-position: center;
   cursor: pointer;
 }
@@ -101,7 +101,7 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   background-image: url("../../public/images/quiz.png");
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
   background-position: center;
   cursor: pointer;
 }

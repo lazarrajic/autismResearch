@@ -23,6 +23,14 @@ const Correct = ({ emotion }) => {
       text: "You chose the correct emotion: FEAR!",
       //   image:
     },
+    excited: {
+      text: "You chose the correct emotion: Excited!",
+      // image:
+    },
+    angry: {
+      text: "You chose the correct emotion: Angry!",
+      // image:
+    },
   };
 
   // Getting the text and image for the current emotion

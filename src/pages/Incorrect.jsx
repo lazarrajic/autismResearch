@@ -24,6 +24,14 @@ const Incorrect = ({ emotion }) => {
       text: "You chose the incorrect emotion: Fear!",
       // image:
     },
+    excited: {
+      text: "You chose the incorrect emotion: Excited!",
+      // image:
+    },
+    angry: {
+      text: "You chose the incorrect emotion: Angry!",
+      // image:
+    },
   };
 
   // Getting the text and image for the current emotion
