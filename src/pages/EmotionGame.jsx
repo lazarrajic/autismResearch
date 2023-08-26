@@ -10,6 +10,7 @@ import readingbook from "../../src/image/readingbook.jpg";
 import swimming from "../../src/image/swimming.jpg";
 import tiger from "../../src/image/tiger.jpg";
 import toys from "../../src/image/toys.jpg";
+import emotiongameimage from "../image/emotiongameimage.png";
 import { FaArrowAltCircleLeft } from "react-icons/fa";
 
 const EmotionGame = () => {
@@ -20,23 +21,23 @@ const EmotionGame = () => {
     {
       image: birthday,
       text: "Today is my birthday. I am going to have a big birthday party with my friends. I am looking forward to it and I feel very… Select the correct feeling",
-      correctEmotion: "Exited",
+      correctEmotion: "excited",
     },
     {
       image: aquarium,
       text: "Today I am going to the aquarium with my sister. I look forward to see so many water animals. I feel very… Select the correct feeling",
-      correctEmotion: "Exited",
+      correctEmotion: "excited",
     },
     {
       image: cinema,
       text: "Today I will go to the cinema to watch my favorite cartoon. I feel very… Select the correct feeling",
-      correctEmotion: "Exited",
+      correctEmotion: "excited",
     },
-
-
-
-
-
+    {
+      image: emotiongameimage,
+      text: "Today my mom took me to the playground and bought me my favorite ice-cream. I was feeling the emotion named ....",
+      correctEmotion: "excited",
+    },
     {
       image: "../../public/images/rain.png",
       text: "It was raining all day and I couldn't go outside to play with my friends. I was feeling the emotion named ....",
@@ -47,6 +48,11 @@ const EmotionGame = () => {
       text: "It was dark and I heard a strange noise coming from outside. I was feeling the emotion named ....",
       correctEmotion: "fear",
     },
+    {
+      image: "../../public/images/dark.png",
+      text: "I wanted to play but I needed to finish my homework first. I was feeling the emotion named ....",
+      correctEmotion: "angry",
+    },
   ];
 
   // State for current question
@@ -54,6 +60,8 @@ const EmotionGame = () => {
 
   // State for score
   const [score, setScore] = useState(0);
+
+  const emotions = ["excited", "sadness", "fear", "angry"];
 
   // Randomly select a question when the component is mounted
   useEffect(() => {
@@ -66,34 +74,19 @@ const EmotionGame = () => {
     navigate("/");
   };
 
-  const handleSadnessClick = () => {
-    if (currentQuestion.correctEmotion === "sadness") {
-      setScore(score + 1);
-      navigate("/correct", {
-        state: { emotion: currentQuestion.correctEmotion },
-      });
-    } else {
-      navigate("/incorrect", {
-        state: { emotion: currentQuestion.correctEmotion },
-      });
-    }
-  };
+  let emotionsToDisplay = [];
+  if (currentQuestion) {
+    emotionsToDisplay = [
+      currentQuestion.correctEmotion,
+      ...emotions
+        .filter((emotion) => emotion !== currentQuestion.correctEmotion)
+        .sort(() => Math.random() - 0.5)
+        .slice(0, 2),
+    ];
+  }
 
-  const handleFearClick = () => {
-    if (currentQuestion.correctEmotion === "fear") {
-      setScore(score + 1);
-      navigate("/correct", {
-        state: { emotion: currentQuestion.correctEmotion },
-      });
-    } else {
-      navigate("/incorrect", {
-        state: { emotion: currentQuestion.correctEmotion },
-      });
-    }
-  };
-
-  const handleExcitedClick = () => {
-    if (currentQuestion.correctEmotion === "EXCITED") {
+  const handleEmotionClick = (emotion) => {
+    if (currentQuestion.correctEmotion === emotion) {
       setScore(score + 1);
       navigate("/correct", {
         state: { emotion: currentQuestion.correctEmotion },
@@ -121,18 +114,15 @@ const EmotionGame = () => {
         Select the correct answer.
       </div>
       <div className="emotion-options">
-        <div className="option-choice">
-          <div className="excited" onClick={handleExcitedClick}></div>
-          <h3 style={{ margin: "0" }}>EXCITED</h3>
-        </div>
-        <div className="option-choice">
-          <div className="sad" onClick={handleSadnessClick}></div>
-          <h3 style={{ margin: "0" }}>SADNESS</h3>
-        </div>
-        <div className="option-choice">
-          <div className="angry" onClick={handleFearClick}></div>
-          <h3 style={{ margin: "0" }}>FEAR</h3>
-        </div>
+        {emotionsToDisplay.map((emotion) => (
+          <div className="option-choice">
+            <div
+              className={emotion.toLowerCase()}
+              onClick={() => handleEmotionClick(emotion)}
+            ></div>
+            <h3 style={{ margin: "0" }}>{emotion}</h3>
+          </div>
+        ))}
       </div>
     </div>
   );

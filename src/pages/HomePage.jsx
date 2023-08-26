@@ -22,8 +22,8 @@ const HomePage = () => {
       <div className="top-bar"></div>
       <div className="options">
         <div className="option-1">
-          <div className="emotins_game" onClick={handleGameClick}></div>
-          <h1>Emotins game</h1>
+          <div className="emotion-game" onClick={handleGameClick}></div>
+          <h1>Emotion game</h1>
         </div>
         <div className="option-1">
           <div className="chatbot" onClick={handleChatbotClick}></div>
