@@ -38,7 +38,7 @@
 
 .game-options {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   flex-direction: row;
   justify-content: center;
   align-items: center;
@@ -71,6 +71,73 @@
   justify-content: center;
   align-items: center;
 } */
+.powerful {
+  display: flex;
+  width: 50%;
+  height: 50%;
+  justify-content: center;
+  margin: 2%;
+  padding: 2%;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  background-image: url("../../public/images/2.powerful.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  cursor: pointer;
+}
+
+.peaceful {
+  display: flex;
+  width: 50%;
+  height: 50%;
+  justify-content: center;
+  margin: 2%;
+  padding: 2%;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  background-image: url("../../public/images/3.peaceful.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  cursor: pointer;
+}
+
+.scared {
+  display: flex;
+  width: 50%;
+  height: 50%;
+  justify-content: center;
+  margin: 2%;
+  padding: 2%;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  background-image: url("../../public/images/4.scared.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  cursor: pointer;
+}
+
+.sad {
+  display: flex;
+  width: 50%;
+  height: 50%;
+  justify-content: center;
+  margin: 2%;
+  padding: 2%;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  background-image: url("../../public/images/5.sad.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  cursor: pointer;
+}
 
 .mad {
   display: flex;

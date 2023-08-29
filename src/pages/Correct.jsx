@@ -11,24 +11,28 @@ const Correct = ({ emotion }) => {
     navigate("/emotiongame");
   };
   const emotions = {
-    joy: {
-      text: "Joy is the emotion of great happiness",
-      //   image:
-    },
-    sadness: {
-      text: "You chose the correct emotion: SADNESS!",
-      //   image:
-    },
-    fear: {
-      text: "You chose the correct emotion: FEAR!",
-      //   image:
-    },
     excited: {
-      text: "You chose the correct emotion: Excited!",
+      text: "You chose the correct emotion: Angry!",
+      // image:
+    },
+    happy: {
+      text: "You chose the correct emotion: Happy!",
+      // image:
+    },
+    creative: {
+      text: "You chose the correct emotion: Creative!",
       // image:
     },
     angry: {
       text: "You chose the correct emotion: Angry!",
+      // image:
+    },
+    frustrated: {
+      text: "You chose the correct emotion: Frustrated!",
+      // image:
+    },
+    skeptical: {
+      text: "You chose the correct emotion: Skeptical!",
       // image:
     },
   };

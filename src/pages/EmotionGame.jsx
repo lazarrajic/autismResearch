@@ -17,7 +17,7 @@ const EmotionGame = () => {
   const navigate = useNavigate();
 
   // Define the questions
-  const questions = [
+  const stories_excited = [
     {
       image: birthday,
       text: "Today is my birthday. I am going to have a big birthday party with my friends. I am looking forward to it and I feel very… Select the correct feeling",
@@ -33,26 +33,103 @@ const EmotionGame = () => {
       text: "Today I will go to the cinema to watch my favorite cartoon. I feel very… Select the correct feeling",
       correctEmotion: "excited",
     },
+  ];
+
+  const stories_happy = [
+    {
+      image: park,
+      text: "Today my mom took me to the playground and bought me my favorite ice cream. I felt very… Select the correct feeling",
+      correctEmotion: "happy",
+    },
+    {
+      image: readingbook,
+      text: "Today my brother read two of my favorite books to me. I love my brother and I felt very… Select the correct feeling",
+      correctEmotion: "happy",
+    },
+    {
+      image: swimming,
+      text: "Today I visited my grandparents and I swam in the lake with them. I felt very…  Select the correct feeling",
+      correctEmotion: "happy",
+    },
+  ];
+
+  const stories_creative = [
+    {
+      image: ocean,
+      text: "Yesterday, I did an ocean art project. My idea was to mix blue and white colors for the ocean. The ocean looked so beautiful at the end. I felt very… Select the correct feeling",
+      correctEmotion: "creative",
+    },
+    {
+      image: toys,
+      text: "Today I organized my toys in a completely different way. Instead of putting all my pretend animals in one basket, I divided them into two groups - water and land animals. I felt very… Select the correct feeling",
+      correctEmotion: "creative",
+    },
+    {
+      image: tiger,
+      text: "My sister helped me do a tiger puppet on paper. And then an idea came to my mind. I wanted to add teeth to the tiger puppet. And it looked very beautiful at the end. I felt very…  Select the correct feeling",
+      correctEmotion: "creative",
+    },
+  ];
+
+  const stories_angry = [
     {
       image: emotiongameimage,
-      text: "Today my mom took me to the playground and bought me my favorite ice-cream. I was feeling the emotion named ....",
-      correctEmotion: "excited",
-    },
-    {
-      image: "../../public/images/rain.png",
-      text: "It was raining all day and I couldn't go outside to play with my friends. I was feeling the emotion named ....",
-      correctEmotion: "sadness",
-    },
-    {
-      image: "../../public/images/dark.png",
-      text: "It was dark and I heard a strange noise coming from outside. I was feeling the emotion named ....",
-      correctEmotion: "fear",
-    },
-    {
-      image: "../../public/images/dark.png",
-      text: "I wanted to play but I needed to finish my homework first. I was feeling the emotion named ....",
+      text: "Today my sister took my toy without asking me first. I was feeling very… Select the correct feeling",
       correctEmotion: "angry",
     },
+    {
+      image: emotiongameimage,
+      text: "Today my friend pushed me on purpose and I fell on the ground. She didn't say 'I am sorry', she just walked away. I was feeling very… Select the correct feeling",
+      correctEmotion: "angry",
+    },
+    {
+      image: emotiongameimage,
+      text: "Today my mom and I went to the park. I started playing with my friends but my mom told me that I have to go home and I didn't want to go home. I was feeling very… Select the correct feeling",
+      correctEmotion: "angry",
+    },
+  ];
+
+  const stories_frustrated = [
+    {
+      image: emotiongameimage,
+      text: "Today my friend asked me for my dad's name. I said the name 5 times and he didn't get it. After multiple attempts, I felt very… Select the correct feeling",
+      correctEmotion: "frustrated",
+    },
+    {
+      image: emotiongameimage,
+      text: "Today I went to the playground with my mom. My mom bought me an ice cream and I dropped it accidentally on the floor. I was feeling very… Select the correct feeling",
+      correctEmotion: "frustrated",
+    },
+    {
+      image: emotiongameimage,
+      text: "Today I was doing a puzzle in my class when my friend came and stepped on it and ruined it. I was feeling very… Select the correct feeling",
+      correctEmotion: "frustrated",
+    },
+  ];
+
+  const stories_skeptical = [
+    {
+      image: emotiongameimage,
+      text: "Today I went to the aquarium and I saw a Jellyfish. My friend told me that it was an Octopus. I was feeling very… Select the correct feeling",
+      correctEmotion: "skeptical",
+    },
+  ];
+
+  const story_set_joyful = [
+    ...stories_excited,
+    ...stories_happy,
+    ...stories_creative,
+  ];
+  
+  const story_set_mad = [
+    ...stories_angry,
+    ...stories_frustrated,
+    ...stories_skeptical,
+  ];
+
+  const questions = [
+    ...story_set_joyful,
+    ...story_set_mad,
   ];
 
   // State for current question
@@ -61,7 +138,7 @@ const EmotionGame = () => {
   // State for score
   const [score, setScore] = useState(0);
 
-  const emotions = ["excited", "sadness", "fear", "angry"];
+  const emotions = ["excited", "happy", "creative", "angry", "frustrated", "skeptical"];
 
   // Randomly select a question when the component is mounted
   useEffect(() => {
