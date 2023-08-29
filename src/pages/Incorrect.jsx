@@ -10,26 +10,29 @@ const Incorrect = ({ emotion }) => {
   const handleNextClick = () => {
     navigate("/emotiongame");
   };
-
   const emotions = {
-    joy: {
-      text: "You chose the incorrect emotion: Joy!",
-      // image:
-    },
-    sadness: {
-      text: "You chose the incorrect emotion: Sadness!",
-      // image:
-    },
-    fear: {
-      text: "You chose the incorrect emotion: Fear!",
-      // image:
-    },
     excited: {
       text: "You chose the incorrect emotion: Excited!",
       // image:
     },
+    happy: {
+      text: "You chose the incorrect emotion: Happy!",
+      // image:
+    },
+    creative: {
+      text: "You chose the incorrect emotion: Creative!",
+      // image:
+    },
     angry: {
       text: "You chose the incorrect emotion: Angry!",
+      // image:
+    },
+    frustrated: {
+      text: "You chose the incorrect emotion: Frustrated!",
+      // image:
+    },
+    skeptical: {
+      text: "You chose the incorrect emotion: Skeptical!",
       // image:
     },
   };

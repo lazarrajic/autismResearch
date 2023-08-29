@@ -26,6 +26,24 @@ const EmotionLearningGame = () => {
           <div className="joyful" onClick={handleGameClick}></div>
           <h1>Joyful</h1>
         </div>
+
+        <div className="game-option-1">
+          <div className="powerful" onClick={handleGameClick}></div>
+          <h1>Powerful</h1>
+        </div>
+        <div className="game-option-1">
+          <div className="peaceful" onClick={handleGameClick}></div>
+          <h1>Peaceful</h1>
+        </div>
+        <div className="game-option-1">
+          <div className="scared" onClick={handleGameClick}></div>
+          <h1>Scared</h1>
+        </div>
+        <div className="game-option-1">
+          <div className="sad" onClick={handleGameClick}></div>
+          <h1>Sad</h1>
+        </div>
+        
         <div className="game-option-1">
           <div className="mad" onClick={handleGameClick}></div>
           <h1>Mad</h1>

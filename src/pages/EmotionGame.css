@@ -73,13 +73,29 @@
   border-radius: 50%;
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  background-image: url("../../public/images/1.joyful.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  cursor: pointer;
+}
+.happy {
+  display: flex;
+  width: 40%;
+  height: 50%;
+  justify-content: center;
+  margin: 2%;
+  padding: 2%;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   background-image: url("../../public/images/happyEmotion.png");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
   cursor: pointer;
 }
-.sadness {
+.creative {
   display: flex;
   width: 40%;
   height: 50%;
@@ -89,23 +105,7 @@
   border-radius: 50%;
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  background-image: url("../../public/images/sadEmotion.png");
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-  cursor: pointer;
-}
-.fear {
-  display: flex;
-  width: 40%;
-  height: 50%;
-  justify-content: center;
-  margin: 2%;
-  padding: 2%;
-  border-radius: 50%;
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  background-image: url("../../public/images/scaredEmotion.png");
+  background-image: url("../../public/images/creativeEmotion.webp");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -121,7 +121,39 @@
   border-radius: 50%;
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  background-image: url("../../public/images/scaredEmotion.png");
+  background-image: url("../../public/images/angryEmotion.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  cursor: pointer;
+}
+.frustrated {
+  display: flex;
+  width: 40%;
+  height: 50%;
+  justify-content: center;
+  margin: 2%;
+  padding: 2%;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  background-image: url("../../public/images/frustratedEmotion.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  cursor: pointer;
+}
+.skeptical {
+  display: flex;
+  width: 40%;
+  height: 50%;
+  justify-content: center;
+  margin: 2%;
+  padding: 2%;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  background-image: url("../../public/images/skepticalEmotion.png");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
