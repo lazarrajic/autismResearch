@@ -12,7 +12,7 @@ const QuizCorrect = ({ emotion }) => {
   };
   const emotions = {
     excited: {
-      text: "You chose the correct emotion: Angry!",
+      text: "You chose the correct emotion: Excited!",
       // image:
     },
     happy: {
@@ -21,6 +21,54 @@ const QuizCorrect = ({ emotion }) => {
     },
     creative: {
       text: "You chose the correct emotion: Creative!",
+      // image:
+    },
+    proud: {
+      text: "You chose the correct emotion: Proud!",
+      // image:
+    },
+    confident: {
+      text: "You chose the correct emotion: Confident!",
+      // image:
+    },
+    surprised: {
+      text: "You chose the correct emotion: Surprised!",
+      // image:
+    },
+    thoughtful: {
+      text: "You chose the correct emotion: Thoughtful!",
+      // image:
+    },
+    thankful: {
+      text: "You chose the correct emotion: Thankful!",
+      // image:
+    },
+    secure: {
+      text: "You chose the correct emotion: Secure!",
+      // image:
+    },
+    anxious: {
+      text: "You chose the correct emotion: Anxious!",
+      // image:
+    },
+    confused: {
+      text: "You chose the correct emotion: Confused!",
+      // image:
+    },
+    overwhelmed: {
+      text: "You chose the correct emotion: Overwhelmed!",
+      // image:
+    },
+    tired: {
+      text: "You chose the correct emotion: Tired!",
+      // image:
+    },
+    bored: {
+      text: "You chose the correct emotion: Bored!",
+      // image:
+    },
+    guilty: {
+      text: "You chose the correct emotion: Guilty!",
       // image:
     },
     angry: {
