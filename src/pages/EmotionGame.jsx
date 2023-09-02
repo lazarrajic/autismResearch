@@ -12,6 +12,7 @@ import tiger from "../../src/image/tiger.jpg";
 import toys from "../../src/image/toys.jpg";
 import emotiongameimage from "../image/emotiongameimage.png";
 import { FaArrowAltCircleLeft } from "react-icons/fa";
+import shuffle from "lodash/shuffle";
 
 const EmotionGame = () => {
   const navigate = useNavigate();
@@ -120,17 +121,14 @@ const EmotionGame = () => {
     ...stories_happy,
     ...stories_creative,
   ];
-  
+
   const story_set_mad = [
     ...stories_angry,
     ...stories_frustrated,
     ...stories_skeptical,
   ];
 
-  const questions = [
-    ...story_set_joyful,
-    ...story_set_mad,
-  ];
+  const questions = [...story_set_joyful, ...story_set_mad];
 
   // State for current question
   const [currentQuestion, setCurrentQuestion] = useState(null);
@@ -138,7 +136,14 @@ const EmotionGame = () => {
   // State for score
   const [score, setScore] = useState(0);
 
-  const emotions = ["excited", "happy", "creative", "angry", "frustrated", "skeptical"];
+  const emotions = [
+    "excited",
+    "happy",
+    "creative",
+    "angry",
+    "frustrated",
+    "skeptical",
+  ];
 
   // Randomly select a question when the component is mounted
   useEffect(() => {
@@ -161,6 +166,8 @@ const EmotionGame = () => {
         .slice(0, 2),
     ];
   }
+
+  emotionsToDisplay = shuffle(emotionsToDisplay);
 
   const handleEmotionClick = (emotion) => {
     if (currentQuestion.correctEmotion === emotion) {
