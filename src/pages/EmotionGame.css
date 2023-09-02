@@ -111,6 +111,211 @@
   background-position: center;
   cursor: pointer;
 }
+
+.proud {
+  display: flex;
+  width: 40%;
+  height: 50%;
+  justify-content: center;
+  margin: 2%;
+  padding: 2%;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  background-image: url("../../public/images/proudEmotion.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  cursor: pointer;
+}
+
+.confident {
+  display: flex;
+  width: 40%;
+  height: 50%;
+  justify-content: center;
+  margin: 2%;
+  padding: 2%;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  background-image: url("../../public/images/confidentEmotion.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  cursor: pointer;
+}
+
+.surprised {
+  display: flex;
+  width: 40%;
+  height: 50%;
+  justify-content: center;
+  margin: 2%;
+  padding: 2%;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  background-image: url("../../public/images/surprisedEmotion.webp");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  cursor: pointer;
+}
+
+.thoughtful {
+  display: flex;
+  width: 40%;
+  height: 50%;
+  justify-content: center;
+  margin: 2%;
+  padding: 2%;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  background-image: url("../../public/images/thoughtfulEmotion.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  cursor: pointer;
+}
+
+.thankful {
+  display: flex;
+  width: 40%;
+  height: 50%;
+  justify-content: center;
+  margin: 2%;
+  padding: 2%;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  background-image: url("../../public/images/thankfulEmotion.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  cursor: pointer;
+}
+
+.secure {
+  display: flex;
+  width: 40%;
+  height: 50%;
+  justify-content: center;
+  margin: 2%;
+  padding: 2%;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  background-image: url("../../public/images/secureEmotion.webp");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  cursor: pointer;
+}
+
+.anxious {
+  display: flex;
+  width: 40%;
+  height: 50%;
+  justify-content: center;
+  margin: 2%;
+  padding: 2%;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  background-image: url("../../public/images/anxiousEmotion.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  cursor: pointer;
+}
+
+.confused {
+  display: flex;
+  width: 40%;
+  height: 50%;
+  justify-content: center;
+  margin: 2%;
+  padding: 2%;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  background-image: url("../../public/images/confusedEmotion.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  cursor: pointer;
+}
+
+.overwhelmed {
+  display: flex;
+  width: 40%;
+  height: 50%;
+  justify-content: center;
+  margin: 2%;
+  padding: 2%;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  background-image: url("../../public/images/overwhelmedEmotion.webp");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  cursor: pointer;
+}
+
+.tired {
+  display: flex;
+  width: 40%;
+  height: 50%;
+  justify-content: center;
+  margin: 2%;
+  padding: 2%;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  background-image: url("../../public/images/tiredEmotion.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  cursor: pointer;
+}
+
+.bored {
+  display: flex;
+  width: 40%;
+  height: 50%;
+  justify-content: center;
+  margin: 2%;
+  padding: 2%;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  background-image: url("../../public/images/boredEmotion.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  cursor: pointer;
+}
+
+.guilty {
+  display: flex;
+  width: 40%;
+  height: 50%;
+  justify-content: center;
+  margin: 2%;
+  padding: 2%;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  background-image: url("../../public/images/guiltyEmotion.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  cursor: pointer;
+}
+
 .angry {
   display: flex;
   width: 40%;
