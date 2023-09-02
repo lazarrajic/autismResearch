@@ -4,27 +4,11 @@ import incorrectImage from "../image/incorrectImage.png";
 import "./Incorrect.css";
 import { FaArrowAltCircleRight } from "react-icons/fa";
 
-const Incorrect = ({ emotion }) => {
+const QuizIncorrect = ({ emotion }) => {
   const navigate = useNavigate();
 
   const handleNextClick = () => {
-    switch (emotion) {
-      case "angry":
-      case "skeptical":
-      case "frustrated":
-        navigate("/learningMad");
-        break;
-
-      case "excited":
-      case "happy":
-      case "creative":
-        navigate("/learningJoy");
-        break;
-      default:
-        // Handle other emotions or unknown cases
-        navigate("/"); // Redirect to a default page if needed
-        break;
-    }
+    navigate("/emotionGame");
   };
   const emotions = {
     excited: {
@@ -80,4 +64,4 @@ const Incorrect = ({ emotion }) => {
   );
 };
 
-export default Incorrect;
+export default QuizIncorrect;

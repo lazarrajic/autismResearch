@@ -9,7 +9,15 @@ const EmotionLearningGame = () => {
   const handleGameClick = () => {
     navigate("/EmotionGame");
   };
-  
+
+  const handleMadGameClick = () => {
+    navigate("/learningMad");
+  };
+
+  const handleJoyGameClick = () => {
+    navigate("/learningJoy");
+  };
+
   const handleBackClick = () => {
     navigate("/");
   };
@@ -23,7 +31,7 @@ const EmotionLearningGame = () => {
       </div>
       <div className="game-options">
         <div className="game-option-1">
-          <div className="joyful" onClick={handleGameClick}></div>
+          <div className="joyful" onClick={handleJoyGameClick}></div>
           <h1>Joyful</h1>
         </div>
 
@@ -43,9 +51,9 @@ const EmotionLearningGame = () => {
           <div className="sad" onClick={handleGameClick}></div>
           <h1>Sad</h1>
         </div>
-        
+
         <div className="game-option-1">
-          <div className="mad" onClick={handleGameClick}></div>
+          <div className="mad" onClick={handleMadGameClick}></div>
           <h1>Mad</h1>
         </div>
       </div>
