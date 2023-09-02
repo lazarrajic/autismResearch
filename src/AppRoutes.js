@@ -6,6 +6,10 @@ import Chatbot from "./pages/Chatbot";
 import EmotionGame from "./pages/EmotionGame";
 import Correct from "./pages/Correct";
 import Incorrect from "./pages/Incorrect";
+import LearningMad from "./pages/LearningMad";
+import LearningJoy from "./pages/LearningJoy";
+import QuizCorrect from "./pages/QuizCorrect";
+import QuizIncorrect from "./pages/QuizIncorrect";
 
 const AppRoutes = () => {
   const location = useLocation();
@@ -21,6 +25,13 @@ const AppRoutes = () => {
       <Route path="/emotiongame" element={<EmotionGame />} />
       <Route path="/correct" element={<Correct emotion={emotion} />} />
       <Route path="/incorrect" element={<Incorrect emotion={emotion} />} />
+      <Route path="/learningMad" element={<LearningMad />} />
+      <Route path="/learningJoy" element={<LearningJoy />} />
+      <Route path="/quizCorrect" element={<QuizCorrect emotion={emotion} />} />
+      <Route
+        path="/quizIncorrect"
+        element={<QuizIncorrect emotion={emotion} />}
+      />
     </Routes>
   );
 };

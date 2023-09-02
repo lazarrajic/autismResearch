@@ -14,10 +14,9 @@ import emotiongameimage from "../image/emotiongameimage.png";
 import { FaArrowAltCircleLeft } from "react-icons/fa";
 import shuffle from "lodash/shuffle";
 
-const EmotionGame = () => {
+const LearningMad = () => {
   const navigate = useNavigate();
 
-  // Define the questions
   const stories_excited = [
     {
       image: birthday,
@@ -72,63 +71,11 @@ const EmotionGame = () => {
     },
   ];
 
-  const stories_angry = [
-    {
-      image: emotiongameimage,
-      text: "Today my sister took my toy without asking me first. I was feeling very… Select the correct feeling",
-      correctEmotion: "angry",
-    },
-    {
-      image: emotiongameimage,
-      text: "Today my friend pushed me on purpose and I fell on the ground. She didn't say 'I am sorry', she just walked away. I was feeling very… Select the correct feeling",
-      correctEmotion: "angry",
-    },
-    {
-      image: emotiongameimage,
-      text: "Today my mom and I went to the park. I started playing with my friends but my mom told me that I have to go home and I didn't want to go home. I was feeling very… Select the correct feeling",
-      correctEmotion: "angry",
-    },
-  ];
-
-  const stories_frustrated = [
-    {
-      image: emotiongameimage,
-      text: "Today my friend asked me for my dad's name. I said the name 5 times and he didn't get it. After multiple attempts, I felt very… Select the correct feeling",
-      correctEmotion: "frustrated",
-    },
-    {
-      image: emotiongameimage,
-      text: "Today I went to the playground with my mom. My mom bought me an ice cream and I dropped it accidentally on the floor. I was feeling very… Select the correct feeling",
-      correctEmotion: "frustrated",
-    },
-    {
-      image: emotiongameimage,
-      text: "Today I was doing a puzzle in my class when my friend came and stepped on it and ruined it. I was feeling very… Select the correct feeling",
-      correctEmotion: "frustrated",
-    },
-  ];
-
-  const stories_skeptical = [
-    {
-      image: emotiongameimage,
-      text: "Today I went to the aquarium and I saw a Jellyfish. My friend told me that it was an Octopus. I was feeling very… Select the correct feeling",
-      correctEmotion: "skeptical",
-    },
-  ];
-
   const story_set_joyful = [
     ...stories_excited,
     ...stories_happy,
     ...stories_creative,
   ];
-
-  const story_set_mad = [
-    ...stories_angry,
-    ...stories_frustrated,
-    ...stories_skeptical,
-  ];
-
-  const questions = [...story_set_joyful, ...story_set_mad];
 
   // State for current question
   const [currentQuestion, setCurrentQuestion] = useState(null);
@@ -136,14 +83,9 @@ const EmotionGame = () => {
   // State for score
   const [score, setScore] = useState(0);
 
-  const emotions = [
-    "excited",
-    "happy",
-    "creative",
-    "angry",
-    "frustrated",
-    "skeptical",
-  ];
+  const questions = [...story_set_joyful];
+
+  const joyfulEmotions = ["excited", "happy", "creative"];
 
   // Randomly select a question when the component is mounted
   useEffect(() => {
@@ -160,7 +102,7 @@ const EmotionGame = () => {
   if (currentQuestion) {
     emotionsToDisplay = [
       currentQuestion.correctEmotion,
-      ...emotions
+      ...joyfulEmotions
         .filter((emotion) => emotion !== currentQuestion.correctEmotion)
         .sort(() => Math.random() - 0.5)
         .slice(0, 2),
@@ -172,12 +114,16 @@ const EmotionGame = () => {
   const handleEmotionClick = (emotion) => {
     if (currentQuestion.correctEmotion === emotion) {
       setScore(score + 1);
-      navigate("/quizCorrect", {
-        state: { emotion: currentQuestion.correctEmotion },
+      navigate("/correct", {
+        state: {
+          emotion: currentQuestion.correctEmotion,
+        },
       });
     } else {
-      navigate("/quizIncorrect", {
-        state: { emotion: currentQuestion.correctEmotion },
+      navigate("/incorrect", {
+        state: {
+          emotion: currentQuestion.correctEmotion,
+        },
       });
     }
   };
@@ -211,5 +157,4 @@ const EmotionGame = () => {
     </div>
   );
 };
-
-export default EmotionGame;
+export default LearningMad;
