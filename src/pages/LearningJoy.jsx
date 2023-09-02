@@ -95,7 +95,7 @@ const LearningMad = () => {
 
   const handleBackClick = () => {
     setScore(0);
-    navigate("/");
+    navigate("/emotionLearningGame");
   };
 
   let emotionsToDisplay = [];

@@ -9,17 +9,42 @@ const Incorrect = ({ emotion }) => {
 
   const handleNextClick = () => {
     switch (emotion) {
-      case "angry":
-      case "skeptical":
-      case "frustrated":
-        navigate("/learningMad");
-        break;
-
       case "excited":
       case "happy":
       case "creative":
         navigate("/learningJoy");
         break;
+
+      case "proud":
+      case "confident":
+      case "surprised":
+        navigate("/learningPowerful");
+        break;
+
+      case "thoughtful":
+      case "thankful":
+      case "secure":
+        navigate("/learningPeaceful");
+        break;
+
+      case "anxious":
+      case "confused":
+      case "overwhelmed":
+        navigate("/learningScared");
+        break;
+
+      case "tired":
+      case "bored":
+      case "guilty":
+        navigate("/learningSad");
+        break;
+
+      case "angry":
+      case "skeptical":
+      case "frustrated":
+        navigate("/learningMad");
+        break;
+        
       default:
         // Handle other emotions or unknown cases
         navigate("/"); // Redirect to a default page if needed

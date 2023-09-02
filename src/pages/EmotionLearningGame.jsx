@@ -6,18 +6,24 @@ import { FaArrowAltCircleLeft } from "react-icons/fa";
 const EmotionLearningGame = () => {
   const navigate = useNavigate();
 
-  const handleGameClick = () => {
-    navigate("/EmotionGame");
-  };
-
-  const handleMadGameClick = () => {
-    navigate("/learningMad");
-  };
-
   const handleJoyGameClick = () => {
     navigate("/learningJoy");
   };
-
+  const handlePeacefulGameClick = () => {
+    navigate("/learningPeaceful");
+  };
+  const handlePowerfulGameClick = () => {
+    navigate("/learningPowerful");
+  };
+  const handleSadGameClick = () => {
+    navigate("/learningSad");
+  };
+  const handleScaredGameClick = () => {
+    navigate("/learningScared");
+  };
+  const handleMadGameClick = () => {
+    navigate("/learningMad");
+  };
   const handleBackClick = () => {
     navigate("/");
   };
@@ -34,24 +40,22 @@ const EmotionLearningGame = () => {
           <div className="joyful" onClick={handleJoyGameClick}></div>
           <h1>Joyful</h1>
         </div>
-
         <div className="game-option-1">
-          <div className="powerful" onClick={handleGameClick}></div>
+          <div className="powerful" onClick={handlePowerfulGameClick}></div>
           <h1>Powerful</h1>
         </div>
         <div className="game-option-1">
-          <div className="peaceful" onClick={handleGameClick}></div>
+          <div className="peaceful" onClick={handlePeacefulGameClick}></div>
           <h1>Peaceful</h1>
         </div>
         <div className="game-option-1">
-          <div className="scared" onClick={handleGameClick}></div>
+          <div className="scared" onClick={handleScaredGameClick}></div>
           <h1>Scared</h1>
         </div>
         <div className="game-option-1">
-          <div className="sad" onClick={handleGameClick}></div>
+          <div className="sad" onClick={handleSadGameClick}></div>
           <h1>Sad</h1>
         </div>
-
         <div className="game-option-1">
           <div className="mad" onClick={handleMadGameClick}></div>
           <h1>Mad</h1>

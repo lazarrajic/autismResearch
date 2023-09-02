@@ -8,6 +8,10 @@ import Correct from "./pages/Correct";
 import Incorrect from "./pages/Incorrect";
 import LearningMad from "./pages/LearningMad";
 import LearningJoy from "./pages/LearningJoy";
+import LearningPeaceful from "./pages/LearningPeaceful";
+import LearningPowerful from "./pages/LearningPowerful";
+import LearningSad from "./pages/LearningSad";
+import LearningScared from "./pages/LearningScared";
 import QuizCorrect from "./pages/QuizCorrect";
 import QuizIncorrect from "./pages/QuizIncorrect";
 
@@ -27,6 +31,10 @@ const AppRoutes = () => {
       <Route path="/incorrect" element={<Incorrect emotion={emotion} />} />
       <Route path="/learningMad" element={<LearningMad />} />
       <Route path="/learningJoy" element={<LearningJoy />} />
+      <Route path="/LearningPeaceful" element={<LearningPeaceful />} />
+      <Route path="/LearningPowerful" element={<LearningPowerful />} />
+      <Route path="/LearningSad" element={<LearningSad />} />
+      <Route path="/LearningScared" element={<LearningScared />} />
       <Route path="/quizCorrect" element={<QuizCorrect emotion={emotion} />} />
       <Route
         path="/quizIncorrect"
