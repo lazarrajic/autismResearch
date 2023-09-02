@@ -8,7 +8,23 @@ const Incorrect = ({ emotion }) => {
   const navigate = useNavigate();
 
   const handleNextClick = () => {
-    navigate("/emotiongame");
+    switch (emotion) {
+      case "angry":
+      case "skeptical":
+      case "frustrated":
+        navigate("/learningMad");
+        break;
+
+      case "excited":
+      case "happy":
+      case "creative":
+        navigate("/learningJoy");
+        break;
+      default:
+        // Handle other emotions or unknown cases
+        navigate("/"); // Redirect to a default page if needed
+        break;
+    }
   };
   const emotions = {
     excited: {

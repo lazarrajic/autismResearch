@@ -12,6 +12,7 @@ import tiger from "../../src/image/tiger.jpg";
 import toys from "../../src/image/toys.jpg";
 import emotiongameimage from "../image/emotiongameimage.png";
 import { FaArrowAltCircleLeft } from "react-icons/fa";
+import shuffle from "lodash/shuffle";
 
 const EmotionGame = () => {
   const navigate = useNavigate();
@@ -400,6 +401,7 @@ const EmotionGame = () => {
     ...stories_skeptical,
   ];
 
+
   //All emotions with all the stories
   const questions = [
     ...story_set_joyful,
@@ -410,13 +412,16 @@ const EmotionGame = () => {
     ...story_set_mad,
   ];
 
+
   // State for current question
   const [currentQuestion, setCurrentQuestion] = useState(null);
 
   // State for score 
   const [score, setScore] = useState(0);
 
+
   const emotions = ["excited", "happy", "creative", "proud", "confident", "surprised", "thoughtful", "thankful", "secure", "anxious", "confused", "overwhelmed", "tired", "bored", "guilty", "angry", "frustrated", "skeptical"];
+
 
   // Randomly select a question when the component is mounted
   useEffect(() => {
@@ -440,14 +445,16 @@ const EmotionGame = () => {
     ];
   }
 
+  emotionsToDisplay = shuffle(emotionsToDisplay);
+
   const handleEmotionClick = (emotion) => {
     if (currentQuestion.correctEmotion === emotion) {
       setScore(score + 1);
-      navigate("/correct", {
+      navigate("/quizCorrect", {
         state: { emotion: currentQuestion.correctEmotion },
       });
     } else {
-      navigate("/incorrect", {
+      navigate("/quizIncorrect", {
         state: { emotion: currentQuestion.correctEmotion },
       });
     }
