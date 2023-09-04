@@ -1,15 +1,42 @@
 import React, { useState, useEffect } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import "./EmotionGame.css";
-import birthday from "../../src/image/birthday.png";
-import aquarium from "../../src/image/aquarium.png";
-import cinema from "../../src/image/cinema.png";
-import ocean from "../../src/image/ocean.jpg";
-import park from "../../src/image/park.jpeg";
-import readingbook from "../../src/image/readingbook.jpg";
-import swimming from "../../src/image/swimming.jpg";
-import tiger from "../../src/image/tiger.jpg";
-import toys from "../../src/image/toys.jpg";
+import birthday from "../../src/image/JoyfulExcitedBirthday.png";
+import aquarium from "../../src/image/JoyfulExcitedAquarium.png";
+import cinema from "../../src/image/JoyfulExcitedCinema.png";
+
+import swimming from "../../src/image/JoyfulHappySwimming.webp";
+import park from "../../src/image/JoyfulHappyIceCreams.png";
+import readingbook from "../../src/image/JoyfulHappyRead.png";
+
+import ocean from "../../src/image/JoyfulCreativeArt.webp";
+import tiger from "../../src/image/JoyfulCreativeTiger.gif";
+import toys from "../../src/image/JoyfulCreativeToys.webp";
+
+import back from "../../src/image/MadAngryGoHome.png";
+import push from "../../src/image/MadAngryPushing.jpeg";
+import toy from "../../src/image/MadAngryToy.png";
+
+import name from "../../src/image/MadFrustratedName.png";
+import puzzle from "../../src/image/MadFrustratedPuzzles.png";
+import icecream from "../../src/image/MadFrustratedIcecream.jpeg";
+
+import donut from "../../src/image/MadScepticalDonuts.jpeg";
+import octopus from "../../src/image/MadScepticalOctopusJellyfish.jpeg";
+import tomatoe from "../../src/image/MadScepticalTomatoe.png";
+
+import laundry from "../../src/image/PowerfulConfidentLaundry.png";
+import shoes from "../../src/image/PowerfulConfidentShoes.png";
+import teeth from "../../src/image/PowerfulConfidentTeeth.png";
+
+import cup from "../../src/image/PowerfulProudCup.png";
+import project from "../../src/image/PowerfulProudProject.png";
+import uniform from "../../src/image/PowerfulProudUniform.png";
+
+import balloon from "../../src/image/PowerfulSurprisedBalloon.png";
+import box from "../../src/image/PowerfulSurprisedBox.webp";
+import grandpa from "../../src/image/PowerfulSurprisedGrandpa.png";
+
 import emotiongameimage from "../image/emotiongameimage.png";
 import { FaArrowAltCircleLeft } from "react-icons/fa";
 import shuffle from "lodash/shuffle";
@@ -69,7 +96,7 @@ const EmotionGame = () => {
     },
     {
       image: tiger,
-      text: "My sister helped me do a tiger puppet on paper. And then an idea came to my mind. I wanted to add teeth to the tiger puppet. And it looked very beautiful at the end. I felt very… ",
+      text: "My sister helped me do a tiger puppet on paper. And then an idea came to my mind. I wanted to add tail to the tiger puppet. And it looked very beautiful at the end. I felt very… ",
       correctEmotion: "creative",
     },
   ];
@@ -77,17 +104,17 @@ const EmotionGame = () => {
   // POWERFUL
   const stories_proud = [
     {
-      image: emotiongameimage,
+      image: cup,
       text: "Today I had a competition in my school. We all had to line up and run, whoever ran fastest would win the medal and the Cup. I focused on the competition and I won. I was feeling very…",
       correctEmotion: "proud",
     },
     {
-      image: emotiongameimage,
+      image: project,
       text: "Today my friend did the best art project in class and we all loved it. I was feeling very…",
       correctEmotion: "proud",
     },
     {
-      image: emotiongameimage,
+      image: uniform,
       text: "Today I got ready for school all by myself. I wore my uniform and packed my backpack all by myself. I was feeling very…",
       correctEmotion: "proud",
     },
@@ -96,17 +123,17 @@ const EmotionGame = () => {
   // POWERFUL
   const stories_confident = [
     {
-      image: emotiongameimage,
+      image: shoes,
       text: "Today my dad offered to help me put on my shoes, but I told my dad that I don't need help, I can put them on by myself. I was feeling very…",
       correctEmotion: "confident",
     },
     {
-      image: emotiongameimage,
+      image: laundry,
       text: "Today I came back from school, washed my hands and ate lunch. After finishing I saw my mom folding clothes and I asked her to teach me how to fold clothes. She taught me and I could do it all by myself. I was feeling very…",
       correctEmotion: "confident",
     },
     {
-      image: emotiongameimage,
+      image: teeth,
       text: "Today I brushed my teeth all by myself. I brushed them everywhere and I made sure there was no food left. It was my first time to do it by myself. I was feeling very…",
       correctEmotion: "confident",
     },
@@ -115,17 +142,17 @@ const EmotionGame = () => {
   // POWERFUL
   const stories_surprised = [
     {
-      image: emotiongameimage,
+      image: balloon,
       text: "Today my friend sat on a balloon and the balloon popped. Nobody was expecting it would pop, thus we all got…",
       correctEmotion: "surprised",
     },
     {
-      image: emotiongameimage,
+      image: grandpa,
       text: "Today my mom was supposed to pick me up from school, but instead my Grandfather came to pick me up. I was so happy and I felt very…",
       correctEmotion: "surprised",
     },
     {
-      image: emotiongameimage,
+      image: box,
       text: "Today was my birthday. My mom invited all my friends. I was looking around the room and i couldn't find my best friend, then all of a sudden he came out of a huge present box. I was laughing and I felt so…",
       correctEmotion: "surprised",
     },
@@ -305,17 +332,17 @@ const EmotionGame = () => {
   // MAD
   const stories_angry = [
     {
-      image: emotiongameimage,
+      image: toy,
       text: "Today my sister took my toy without asking me first. I was feeling very…",
       correctEmotion: "angry",
     },
     {
-      image: emotiongameimage,
+      image: push,
       text: "Today my friend pushed me on purpose and I fell on the ground. She didn't say 'I am sorry', she just walked away. I was feeling very…",
       correctEmotion: "angry",
     },
     {
-      image: emotiongameimage,
+      image: back,
       text: "Today my mom and I went to the park. I started playing with my friends but my mom told me that I have to go home and I didn't want to go home. I was feeling very…",
       correctEmotion: "angry",
     },
@@ -324,17 +351,17 @@ const EmotionGame = () => {
   // MAD
   const stories_frustrated = [
     {
-      image: emotiongameimage,
+      image: name,
       text: "Today my friend asked me for my dad's name. I said the name 5 times and he didn't get it. After multiple attempts, I felt very…",
       correctEmotion: "frustrated",
     },
     {
-      image: emotiongameimage,
+      image: icecream,
       text: "Today I went to the playground with my mom. My mom bought me an ice cream and I dropped it accidentally on the floor. I was feeling very…",
       correctEmotion: "frustrated",
     },
     {
-      image: emotiongameimage,
+      image: puzzle,
       text: "Today I was doing a puzzle in my class when my friend came and stepped on it and ruined it. I was feeling very…",
       correctEmotion: "frustrated",
     },
@@ -343,17 +370,17 @@ const EmotionGame = () => {
   // MAD
   const stories_skeptical = [
     {
-      image: emotiongameimage,
+      image: octopus,
       text: "Today I went to the aquarium and I saw a Jellyfish. My friend told me that it was an Octopus. I was feeling very…",
       correctEmotion: "skeptical",
     },
     {
-      image: emotiongameimage,
+      image: donut,
       text: "Today my mom took me to the park. She gave me two choices for a snack: a donut or an ice cream. I liked both of them and didn't know which one to choose. I was feeling very…",
       correctEmotion: "skeptical",
     },
     {
-      image: emotiongameimage,
+      image: tomatoe,
       text: "Today my friend told me that tomato is a vegetable, but I read a book that says that tomato is a fruit, but he insisted that he was right. I was feeling very…",
       correctEmotion: "skeptical",
     },

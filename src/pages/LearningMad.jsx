@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import "./EmotionGame.css";
-import birthday from "../../src/image/birthday.png";
-import aquarium from "../../src/image/aquarium.png";
-import cinema from "../../src/image/cinema.png";
-import ocean from "../../src/image/ocean.jpg";
-import park from "../../src/image/park.jpeg";
-import readingbook from "../../src/image/readingbook.jpg";
-import swimming from "../../src/image/swimming.jpg";
-import tiger from "../../src/image/tiger.jpg";
-import toys from "../../src/image/toys.jpg";
-import emotiongameimage from "../image/emotiongameimage.png";
+import back from "../../src/image/MadAngryGoHome.png";
+import push from "../../src/image/MadAngryPushing.jpeg";
+import toy from "../../src/image/MadAngryToy.png";
+import name from "../../src/image/MadFrustratedName.png";
+import puzzle from "../../src/image/MadFrustratedPuzzles.png";
+import icecream from "../../src/image/MadFrustratedIcecream.jpeg";
+import donut from "../../src/image/MadScepticalDonuts.jpeg";
+import octopus from "../../src/image/MadScepticalOctopusJellyfish.jpeg";
+import tomatoe from "../../src/image/MadScepticalTomatoe.png";
 import { FaArrowAltCircleLeft } from "react-icons/fa";
 import shuffle from "lodash/shuffle";
 
@@ -19,17 +18,17 @@ const LearningMad = () => {
 
   const stories_angry = [
     {
-      image: emotiongameimage,
+      image: toy,
       text: "Today my sister took my toy without asking me first. I was feeling very… Select the correct feeling",
       correctEmotion: "angry",
     },
     {
-      image: emotiongameimage,
+      image: push,
       text: "Today my friend pushed me on purpose and I fell on the ground. She didn't say 'I am sorry', she just walked away. I was feeling very… Select the correct feeling",
       correctEmotion: "angry",
     },
     {
-      image: emotiongameimage,
+      image: back,
       text: "Today my mom and I went to the park. I started playing with my friends but my mom told me that I have to go home and I didn't want to go home. I was feeling very… Select the correct feeling",
       correctEmotion: "angry",
     },
@@ -37,17 +36,17 @@ const LearningMad = () => {
 
   const stories_frustrated = [
     {
-      image: emotiongameimage,
+      image: name,
       text: "Today my friend asked me for my dad's name. I said the name 5 times and he didn't get it. After multiple attempts, I felt very… Select the correct feeling",
       correctEmotion: "frustrated",
     },
     {
-      image: emotiongameimage,
+      image: icecream,
       text: "Today I went to the playground with my mom. My mom bought me an ice cream and I dropped it accidentally on the floor. I was feeling very… Select the correct feeling",
       correctEmotion: "frustrated",
     },
     {
-      image: emotiongameimage,
+      image: puzzle,
       text: "Today I was doing a puzzle in my class when my friend came and stepped on it and ruined it. I was feeling very… Select the correct feeling",
       correctEmotion: "frustrated",
     },
@@ -55,8 +54,18 @@ const LearningMad = () => {
 
   const stories_skeptical = [
     {
-      image: emotiongameimage,
-      text: "Today I went to the aquarium and I saw a Jellyfish. My friend told me that it was an Octopus. I was feeling very… Select the correct feeling",
+      image: octopus,
+      text: "Today I went to the aquarium and I saw a Jellyfish. My friend told me that it was an Octopus. I was feeling very…",
+      correctEmotion: "skeptical",
+    },
+    {
+      image: donut,
+      text: "Today my mom took me to the park. She gave me two choices for a snack: a donut or an ice cream. I liked both of them and didn't know which one to choose. I was feeling very…",
+      correctEmotion: "skeptical",
+    },
+    {
+      image: tomatoe,
+      text: "Today my friend told me that tomato is a vegetable, but I read a book that says that tomato is a fruit, but he insisted that he was right. I was feeling very…",
       correctEmotion: "skeptical",
     },
   ];
@@ -85,7 +94,7 @@ const LearningMad = () => {
 
   const handleBackClick = () => {
     setScore(0);
-    navigate("/");
+    navigate("/emotionLearningGame");
   };
 
   let emotionsToDisplay = [];
