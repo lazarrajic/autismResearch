@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import "./EmotionGame.css";
-import birthday from "../../src/image/birthday.png";
-import aquarium from "../../src/image/aquarium.png";
-import cinema from "../../src/image/cinema.png";
-import ocean from "../../src/image/ocean.jpg";
-import park from "../../src/image/park.jpeg";
-import readingbook from "../../src/image/readingbook.jpg";
-import swimming from "../../src/image/swimming.jpg";
-import tiger from "../../src/image/tiger.jpg";
-import toys from "../../src/image/toys.jpg";
-import emotiongameimage from "../image/emotiongameimage.png";
+import birthday from "../../src/image/JoyfulExcitedBirthday.png";
+import aquarium from "../../src/image/JoyfulExcitedAquarium.png";
+import cinema from "../../src/image/JoyfulExcitedCinema.png";
+import swimming from "../../src/image/JoyfulHappySwimming.webp";
+import park from "../../src/image/JoyfulHappyIceCreams.png";
+import readingbook from "../../src/image/JoyfulHappyRead.png";
+import ocean from "../../src/image/JoyfulCreativeArt.webp";
+import tiger from "../../src/image/JoyfulCreativeTiger.gif";
+import toys from "../../src/image/JoyfulCreativeToys.webp";
+
 import { FaArrowAltCircleLeft } from "react-icons/fa";
 import shuffle from "lodash/shuffle";
 

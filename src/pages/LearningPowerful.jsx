@@ -1,7 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import "./EmotionGame.css";
-import emotiongameimage from "../image/emotiongameimage.png";
+import laundry from "../../src/image/PowerfulConfidentLaundry.png";
+import shoes from "../../src/image/PowerfulConfidentShoes.png";
+import teeth from "../../src/image/PowerfulConfidentTeeth.png";
+
+import cup from "../../src/image/PowerfulProudCup.png";
+import project from "../../src/image/PowerfulProudProject.png";
+import uniform from "../../src/image/PowerfulProudUniform.png";
+
+import balloon from "../../src/image/PowerfulSurprisedBalloon.png";
+import box from "../../src/image/PowerfulSurprisedBox.webp";
+import grandpa from "../../src/image/PowerfulSurprisedGrandpa.png";
 import { FaArrowAltCircleLeft } from "react-icons/fa";
 import shuffle from "lodash/shuffle";
 
@@ -11,17 +21,17 @@ const LearningMad = () => {
   // POWERFUL
   const stories_proud = [
     {
-      image: emotiongameimage,
+      image: cup,
       text: "Today I had a competition in my school. We all had to line up and run, whoever ran fastest would win the medal and the Cup. I focused on the competition and I won. I was feeling very…",
       correctEmotion: "proud",
     },
     {
-      image: emotiongameimage,
+      image: project,
       text: "Today my friend did the best art project in class and we all loved it. I was feeling very…",
       correctEmotion: "proud",
     },
     {
-      image: emotiongameimage,
+      image: uniform,
       text: "Today I got ready for school all by myself. I wore my uniform and packed my backpack all by myself. I was feeling very…",
       correctEmotion: "proud",
     },
@@ -30,17 +40,17 @@ const LearningMad = () => {
   // POWERFUL
   const stories_confident = [
     {
-      image: emotiongameimage,
+      image: shoes,
       text: "Today my dad offered to help me put on my shoes, but I told my dad that I don't need help, I can put them on by myself. I was feeling very…",
       correctEmotion: "confident",
     },
     {
-      image: emotiongameimage,
+      image: laundry,
       text: "Today I came back from school, washed my hands and ate lunch. After finishing I saw my mom folding clothes and I asked her to teach me how to fold clothes. She taught me and I could do it all by myself. I was feeling very…",
       correctEmotion: "confident",
     },
     {
-      image: emotiongameimage,
+      image: teeth,
       text: "Today I brushed my teeth all by myself. I brushed them everywhere and I made sure there was no food left. It was my first time to do it by myself. I was feeling very…",
       correctEmotion: "confident",
     },
@@ -49,17 +59,17 @@ const LearningMad = () => {
   // POWERFUL
   const stories_surprised = [
     {
-      image: emotiongameimage,
+      image: balloon,
       text: "Today my friend sat on a balloon and the balloon popped. Nobody was expecting it would pop, thus we all got…",
       correctEmotion: "surprised",
     },
     {
-      image: emotiongameimage,
+      image: grandpa,
       text: "Today my mom was supposed to pick me up from school, but instead my Grandfather came to pick me up. I was so happy and I felt very…",
       correctEmotion: "surprised",
     },
     {
-      image: emotiongameimage,
+      image: box,
       text: "Today was my birthday. My mom invited all my friends. I was looking around the room and i couldn't find my best friend, then all of a sudden he came out of a huge present box. I was laughing and I felt so…",
       correctEmotion: "surprised",
     },
