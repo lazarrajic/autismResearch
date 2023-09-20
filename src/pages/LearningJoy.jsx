@@ -83,9 +83,61 @@ const LearningMad = () => {
   // State for score
   const [score, setScore] = useState(0);
 
+  //state for level
+  const [level, setLevel] = useState(1);
+
   const questions = [...story_set_joyful];
 
   const joyfulEmotions = ["excited", "happy", "creative"];
+  const allOtherEmotions = [
+    "anxious",
+    "confused",
+    "overwhelmed",
+    "tired",
+    "bored",
+    "guilty",
+    "proud",
+    "confident",
+    "surprised",
+    "thoughtful",
+    "thankful",
+    "secure",
+    "angry",
+    "frustrated",
+    "skeptical",
+  ];
+
+  // Helper function to shuffle an array
+  function shuffleArray(array) {
+    let curId = array.length;
+    while (0 !== curId) {
+      let randId = Math.floor(Math.random() * curId);
+      curId -= 1;
+      let tmp = array[curId];
+      array[curId] = array[randId];
+      array[randId] = tmp;
+    }
+    return array;
+  }
+  // Emotion Options for the current level
+  const levelEmotions = {
+    1: currentQuestion
+      ? [
+          currentQuestion.correctEmotion,
+          ...shuffleArray(allOtherEmotions).slice(0, 2),
+        ]
+      : [],
+    2: currentQuestion
+      ? [
+          currentQuestion.correctEmotion,
+          ...joyfulEmotions.slice(0, 1),
+          ...shuffleArray(allOtherEmotions).slice(0, 1),
+        ]
+      : [],
+    3: currentQuestion
+      ? [currentQuestion.correctEmotion, ...joyfulEmotions.slice(0, 2)]
+      : [],
+  };
 
   // Randomly select a question when the component is mounted
   useEffect(() => {
@@ -100,32 +152,50 @@ const LearningMad = () => {
 
   let emotionsToDisplay = [];
   if (currentQuestion) {
-    emotionsToDisplay = [
-      currentQuestion.correctEmotion,
-      ...joyfulEmotions
-        .filter((emotion) => emotion !== currentQuestion.correctEmotion)
-        .sort(() => Math.random() - 0.5)
-        .slice(0, 2),
-    ];
+    emotionsToDisplay = levelEmotions[level];
   }
 
   emotionsToDisplay = shuffle(emotionsToDisplay);
 
+  const generateNewQuestion = () => {
+    const randomIndex = Math.floor(Math.random() * questions.length);
+    setCurrentQuestion(questions[randomIndex]);
+  };
+
+  useEffect(() => {
+    generateNewQuestion();
+    setLevel(1); // Reset level to 1
+  }, []);
+
   const handleEmotionClick = (emotion) => {
     if (currentQuestion.correctEmotion === emotion) {
-      setScore(score + 1);
-      navigate("/correct", {
-        state: {
-          emotion: currentQuestion.correctEmotion,
-        },
-      });
+      // Correct answer
+      const newScore = score + 1;
+      setScore(newScore);
+      // I have commented out the correct navigation as it doesnt hold state of scores when navigating back and we dont have a DB right now to store the scores.
+      // navigate("/correct", {
+      //   state: {
+      //     emotion: currentQuestion.correctEmotion,
+      //   },
+      // });
+      // Check for consecutive correct answers
+      if (score + 1 >= 3) {
+        // If there are 3 consecutive correct answers, level up
+        setLevel(level + 1);
+        // Reset consecutive correct answers count
+        setScore(0);
+      }
     } else {
+      // Incorrect answer
+      setScore(0); // Reset consecutive correct answers count on incorrect answer
       navigate("/incorrect", {
         state: {
           emotion: currentQuestion.correctEmotion,
         },
       });
     }
+    // Generate a new question
+    generateNewQuestion();
   };
 
   return (
@@ -140,6 +210,8 @@ const LearningMad = () => {
       </div>
       <div className="emotion-description">
         {currentQuestion && <h3>{currentQuestion.text}</h3>}
+        <br />
+        <p>Level: {level}</p>
         <br />
         Select the correct answer.
       </div>
