@@ -10,6 +10,7 @@ import readingbook from "../../src/image/JoyfulHappyRead.png";
 import ocean from "../../src/image/JoyfulCreativeArt.webp";
 import tiger from "../../src/image/JoyfulCreativeTiger.gif";
 import toys from "../../src/image/JoyfulCreativeToys.webp";
+import correctImage from "../image/correctImage.png";
 
 import { FaArrowAltCircleLeft } from "react-icons/fa";
 import shuffle from "lodash/shuffle";
@@ -88,6 +89,9 @@ const LearningMad = () => {
 
   const questions = [...story_set_joyful];
 
+  const [showModal, setShowModal] = useState(false);
+  const [modalMessage, setModalMessage] = useState("");
+
   const joyfulEmotions = ["excited", "happy", "creative"];
   const allOtherEmotions = [
     "anxious",
@@ -122,21 +126,36 @@ const LearningMad = () => {
   // Emotion Options for the current level
   const levelEmotions = {
     1: currentQuestion
-      ? [
+      ? new Set([
           currentQuestion.correctEmotion,
-          ...shuffleArray(allOtherEmotions).slice(0, 2),
-        ]
-      : [],
+          ...shuffleArray(
+            allOtherEmotions.filter(
+              (emotion) => emotion !== currentQuestion.correctEmotion
+            )
+          ).slice(0, 2),
+        ])
+      : new Set(),
     2: currentQuestion
-      ? [
+      ? new Set([
           currentQuestion.correctEmotion,
-          ...joyfulEmotions.slice(0, 1),
-          ...shuffleArray(allOtherEmotions).slice(0, 1),
-        ]
-      : [],
+          ...joyfulEmotions
+            .filter((emotion) => emotion !== currentQuestion.correctEmotion)
+            .slice(0, 1),
+          ...shuffleArray(
+            allOtherEmotions.filter(
+              (emotion) => emotion !== currentQuestion.correctEmotion
+            )
+          ).slice(0, 1),
+        ])
+      : new Set(),
     3: currentQuestion
-      ? [currentQuestion.correctEmotion, ...joyfulEmotions.slice(0, 2)]
-      : [],
+      ? new Set([
+          currentQuestion.correctEmotion,
+          ...joyfulEmotions
+            .filter((emotion) => emotion !== currentQuestion.correctEmotion)
+            .slice(0, 2),
+        ])
+      : new Set(),
   };
 
   // Randomly select a question when the component is mounted
@@ -152,7 +171,7 @@ const LearningMad = () => {
 
   let emotionsToDisplay = [];
   if (currentQuestion) {
-    emotionsToDisplay = levelEmotions[level];
+    emotionsToDisplay = Array.from(levelEmotions[level]);
   }
 
   emotionsToDisplay = shuffle(emotionsToDisplay);
@@ -172,6 +191,8 @@ const LearningMad = () => {
       // Correct answer
       const newScore = score + 1;
       setScore(newScore);
+      setModalMessage("Correct answer! Keep going!");
+      setShowModal(true);
       // I have commented out the correct navigation as it doesnt hold state of scores when navigating back and we dont have a DB right now to store the scores.
       // navigate("/correct", {
       //   state: {
@@ -184,6 +205,12 @@ const LearningMad = () => {
         setLevel(level + 1);
         // Reset consecutive correct answers count
         setScore(0);
+
+        //if level is now 4 then navigate to the next game
+        if (level + 1 > 3) {
+          navigate("/congrats"); // Change this to navigate to a page that congratulates user for completing the game
+          return;
+        }
       }
     } else {
       // Incorrect answer
@@ -200,6 +227,23 @@ const LearningMad = () => {
 
   return (
     <div className="emotion-main">
+      {showModal && (
+        <>
+          <div className="overlay"></div>
+          <div className="modal">
+            <img className="modal-image" src={correctImage} alt="correct" />
+            <span style={{ fontSize: "30px", fontWeight: "600" }}>
+              {modalMessage}
+            </span>
+            <button
+              style={{ boreder: "none", padding: "10px" }}
+              onClick={() => setShowModal(false)}
+            >
+              Close
+            </button>
+          </div>
+        </>
+      )}
       <div className="emotion-top-bar">
         <div className="emotion-back-button" onClick={handleBackClick}>
           <FaArrowAltCircleLeft size={40} />

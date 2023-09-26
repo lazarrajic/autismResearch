@@ -374,3 +374,39 @@
   margin: 10px;
   cursor: pointer;
 }
+
+.correct img {
+  border: 2px solid green;
+}
+
+.incorrect img {
+  border: 2px solid red;
+}
+
+.modal {
+  /* height: 70%; */
+  /* width: 60%; */
+  background-color: #e0f8de;
+  padding: 125px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50px;
+  z-index: 1000;
+  gap: 30px;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
