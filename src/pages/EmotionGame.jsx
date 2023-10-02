@@ -446,6 +446,10 @@ const EmotionGame = () => {
   // State for score 
   const [score, setScore] = useState(0);
 
+  /////////////////////////
+  //state variable for correct answered stories
+ ////////////////////////// const [answeredStories, setAnsweredStories] = useState([]);
+
 
   const emotions = ["excited", "happy", "creative", "proud", "confident", "surprised", "thoughtful", "thankful", "secure", "anxious", "confused", "overwhelmed", "tired", "bored", "guilty", "angry", "frustrated", "skeptical"];
 
