@@ -11,11 +11,10 @@ import ocean from "../../src/image/JoyfulCreativeArt.webp";
 import tiger from "../../src/image/JoyfulCreativeTiger.gif";
 import toys from "../../src/image/JoyfulCreativeToys.webp";
 import correctImage from "../image/correctImage.png";
-
 import { FaArrowAltCircleLeft } from "react-icons/fa";
 import shuffle from "lodash/shuffle";
 
-const LearningMad = () => {
+const LearningJoy = () => {
   const navigate = useNavigate();
 
   const stories_excited = [
@@ -273,4 +272,4 @@ const LearningMad = () => {
     </div>
   );
 };
-export default LearningMad;
+export default LearningJoy;
