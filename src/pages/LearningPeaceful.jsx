@@ -83,6 +83,9 @@ const LearningPeaceful = () => {
   //state for level
   const [level, setLevel] = useState(1);
 
+  //state variable for correct answered stories
+  const [answeredStories, setAnsweredStories] = useState([]);
+
   const questions = [...story_set_peaceful];
 
   const [showModal, setShowModal] = useState(false);
@@ -156,9 +159,18 @@ const LearningPeaceful = () => {
 
   // Randomly select a question when the component is mounted
   useEffect(() => {
-    const randomIndex = Math.floor(Math.random() * questions.length);
-    setCurrentQuestion(questions[randomIndex]);
-  }, []);
+    const remainingStories = questions.filter(
+      (story) => !answeredStories.includes(story.text)
+    );
+  
+    if (remainingStories.length === 0) {
+      navigate("/congrats");
+      return;
+    }
+  
+    const randomIndex = Math.floor(Math.random() * remainingStories.length);
+    setCurrentQuestion(remainingStories[randomIndex]);
+  }, [answeredStories]);
 
   const handleBackClick = () => {
     setScore(0);
@@ -173,8 +185,18 @@ const LearningPeaceful = () => {
   emotionsToDisplay = shuffle(emotionsToDisplay);
 
   const generateNewQuestion = () => {
-    const randomIndex = Math.floor(Math.random() * questions.length);
-    setCurrentQuestion(questions[randomIndex]);
+    // Filtering stories that were answered correctly
+    const remainingStories = questions.filter(
+      (story) => !answeredStories.includes(story.text)
+    );
+  
+    if (remainingStories.length === 0) {
+      navigate("/congrats"); 
+      return;
+    }
+
+    const randomIndex = Math.floor(Math.random() * remainingStories.length);
+    setCurrentQuestion(remainingStories[randomIndex]);
   };
 
   useEffect(() => {
@@ -189,6 +211,10 @@ const LearningPeaceful = () => {
       setScore(newScore);
       setModalMessage("Correct answer! Keep going!");
       setShowModal(true);
+
+      // Add the answered story to the list of answered stories
+      setAnsweredStories([...answeredStories, currentQuestion.text]);
+      
       // I have commented out the correct navigation as it doesnt hold state of scores when navigating back and we dont have a DB right now to store the scores.
       // navigate("/correct", {
       //   state: {
