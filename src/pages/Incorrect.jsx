@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
-import incorrectImage from "../image/incorrectImage.png";
 import "./Incorrect.css";
+import incorrectImage from "../image/incorrectImage.png";
 import { FaArrowAltCircleRight } from "react-icons/fa";
 
 const Incorrect = ({ emotion }) => {
