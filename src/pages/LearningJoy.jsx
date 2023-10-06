@@ -161,19 +161,20 @@ const LearningJoy = () => {
   };
 
   // Randomly select a question when the component is mounted
-  useEffect(() => {
-    const remainingStories = questions.filter(
-      (story) => !answeredStories.includes(story.text)
-    );
-  
-    if (remainingStories.length === 0) {
-      navigate("/congrats");
-      return;
-    }
-  
-    const randomIndex = Math.floor(Math.random() * remainingStories.length);
-    setCurrentQuestion(remainingStories[randomIndex]);
-  }, [answeredStories]);
+  // useEffect(() => {
+  //   const remainingStories = questions.filter(
+  //     (story) => !answeredStories.includes(story.text)
+  //   );
+
+  //   if (remainingStories.length === 0) {
+  //     navigate("/congrats");
+  //     localStorage.setItem("learningJoyCompleted", "true");
+  //     return;
+  //   }
+
+  //   const randomIndex = Math.floor(Math.random() * remainingStories.length);
+  //   setCurrentQuestion(remainingStories[randomIndex]);
+  // }, [answeredStories]);
 
   const handleBackClick = () => {
     setScore(0);
@@ -187,14 +188,29 @@ const LearningJoy = () => {
 
   emotionsToDisplay = shuffle(emotionsToDisplay);
 
+  // const generateNewQuestion = () => {
+  //   // Filtering stories that were answered correctly
+  //   const remainingStories = questions.filter(
+  //     (story) => !answeredStories.includes(story.text)
+  //   );
+
+  //   if (remainingStories.length === 0) {
+  //     navigate("/congrats");
+  //     localStorage.setItem("learningJoyCompleted", "true");
+  //     return;
+  //   }
+
+  //   const randomIndex = Math.floor(Math.random() * remainingStories.length);
+  //   setCurrentQuestion(remainingStories[randomIndex]);
+  // };
+
   const generateNewQuestion = () => {
-    // Filtering stories that were answered correctly
     const remainingStories = questions.filter(
       (story) => !answeredStories.includes(story.text)
     );
-  
+
     if (remainingStories.length === 0) {
-      navigate("/congrats"); 
+      navigate("/congrats");
       return;
     }
 
@@ -204,6 +220,9 @@ const LearningJoy = () => {
 
   useEffect(() => {
     generateNewQuestion();
+  }, [answeredStories]);
+
+  useEffect(() => {
     setLevel(1); // Reset level to 1
   }, []);
 
@@ -217,7 +236,7 @@ const LearningJoy = () => {
 
       // Add the answered story to the list of answered stories
       setAnsweredStories([...answeredStories, currentQuestion.text]);
-      
+
       // I have commented out the correct navigation as it doesnt hold state of scores when navigating back and we dont have a DB right now to store the scores.
       // navigate("/correct", {
       //   state: {
@@ -233,7 +252,8 @@ const LearningJoy = () => {
 
         //if level is now 4 then navigate to the next game
         if (level + 1 > 3) {
-          navigate("/congrats"); // Change this to navigate to a page that congratulates user for completing the game
+          localStorage.setItem("learningJoyCompleted", "true");
+          navigate("/congrats");
           return;
         }
       }
@@ -261,7 +281,7 @@ const LearningJoy = () => {
               {modalMessage}
             </span>
             <button
-              style={{ boreder: "none", padding: "10px" }}
+              style={{ border: "none", padding: "10px" }}
               onClick={() => setShowModal(false)}
             >
               Close
@@ -269,6 +289,7 @@ const LearningJoy = () => {
           </div>
         </>
       )}
+
       <div className="emotion-top-bar">
         <div className="emotion-back-button" onClick={handleBackClick}>
           <FaArrowAltCircleLeft size={40} />

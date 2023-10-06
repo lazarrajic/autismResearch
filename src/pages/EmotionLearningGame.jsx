@@ -5,6 +5,9 @@ import { FaArrowAltCircleLeft } from "react-icons/fa";
 
 const EmotionLearningGame = () => {
   const navigate = useNavigate();
+  const isGameCompleted =
+    localStorage.getItem("learningJoyCompleted") === "true";
+  console.log("Game Completion Status:", isGameCompleted);
 
   const handleJoyGameClick = () => {
     navigate("/learningJoy");
@@ -38,7 +41,7 @@ const EmotionLearningGame = () => {
       <div className="game-options">
         <div className="game-option-1">
           <div className="joyful" onClick={handleJoyGameClick}></div>
-          <h1>Joyful</h1>
+          <h1>Joyful {isGameCompleted && <span>✔️</span>}</h1>
         </div>
         <div className="game-option-1">
           <div className="powerful" onClick={handlePowerfulGameClick}></div>
