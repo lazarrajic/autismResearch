@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./HomePage.css";
 
 const HomePage = () => {
   const navigate = useNavigate();
+
+  const [showPopup, setShowPopup] = useState(false);
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleGameClick = () => {
     navigate("/EmotionLearningGame");
@@ -17,9 +21,51 @@ const HomePage = () => {
     navigate("/emotiongame");
   };
 
+  const handleAdminClick = () => {
+    setShowPopup(true);
+  };
+
+  const handlePopupClose = () => {
+    setShowPopup(false);
+  };
+
+  const handlePopupSubmit = () => {
+    // Need to replace with actual username and password check
+    if (username === "admin" && password === "password") {
+      navigate("/admin");
+    } else {
+      alert("Invalid username or password!");
+    }
+  };
+
   return (
     <div className="main">
-      <div className="top-bar"></div>
+      {showPopup && (
+        <div className="popup">
+          <div className="popup-content">
+            <h2>Login to Admin</h2>
+            <input
+              type="text"
+              placeholder="Username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <button onClick={handlePopupSubmit}>Login</button>
+            <button onClick={handlePopupClose}>Close</button>
+          </div>
+        </div>
+      )}
+      <div className="top-bar">
+        <button className="admin-btn" onClick={handleAdminClick}>
+          Admin
+        </button>
+      </div>
       <div className="options">
         <div className="option-1">
           <div className="emotion-game" onClick={handleGameClick}></div>

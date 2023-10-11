@@ -15,6 +15,7 @@ import LearningScared from "./pages/LearningScared";
 import QuizCorrect from "./pages/QuizCorrect";
 import QuizIncorrect from "./pages/QuizIncorrect";
 import Congrats from "./pages/Congratulations";
+import Admin from "./pages/Admin";
 
 const AppRoutes = () => {
   const location = useLocation();
@@ -42,6 +43,7 @@ const AppRoutes = () => {
         element={<QuizIncorrect emotion={emotion} />}
       />
       <Route path="/congrats" element={<Congrats />} />
+      <Route path="/admin" element={<Admin />} />
     </Routes>
   );
 };
