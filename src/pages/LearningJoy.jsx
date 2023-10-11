@@ -84,7 +84,7 @@ const LearningJoy = () => {
   const [score, setScore] = useState(0);
 
   //state for level
-  const [level, setLevel] = useState(1);
+  const [levelJoy, setLevelJoy] = useState(1);
 
   //state variable for correct answered stories
   const [answeredStories, setAnsweredStories] = useState([]);
@@ -93,6 +93,13 @@ const LearningJoy = () => {
 
   const [showModal, setShowModal] = useState(false);
   const [modalMessage, setModalMessage] = useState("");
+
+  //State for highest consecutive score
+  const [highestConsecutiveScoreJoy, setHighestConsecutiveScoreJoy] = useState(
+    () => {
+      return parseInt(localStorage.getItem("highestConsecutiveScoreJoy")) || 0;
+    }
+  );
 
   const joyfulEmotions = ["excited", "happy", "creative"];
   const allOtherEmotions = [
@@ -183,7 +190,7 @@ const LearningJoy = () => {
 
   let emotionsToDisplay = [];
   if (currentQuestion) {
-    emotionsToDisplay = Array.from(levelEmotions[level]);
+    emotionsToDisplay = Array.from(levelEmotions[levelJoy]);
   }
 
   emotionsToDisplay = shuffle(emotionsToDisplay);
@@ -223,7 +230,7 @@ const LearningJoy = () => {
   }, [answeredStories]);
 
   useEffect(() => {
-    setLevel(1); // Reset level to 1
+    setLevelJoy(1); // Reset level to 1
   }, []);
 
   const handleEmotionClick = (emotion) => {
@@ -233,6 +240,10 @@ const LearningJoy = () => {
       setScore(newScore);
       setModalMessage("Correct answer! Keep going!");
       setShowModal(true);
+
+      if (newScore > highestConsecutiveScoreJoy) {
+        setHighestConsecutiveScoreJoy(newScore);
+      }
 
       // Add the answered story to the list of answered stories
       setAnsweredStories([...answeredStories, currentQuestion.text]);
@@ -246,12 +257,12 @@ const LearningJoy = () => {
       // Check for consecutive correct answers
       if (score + 1 >= 3) {
         // If there are 3 consecutive correct answers, level up
-        setLevel(level + 1);
+        setLevelJoy(levelJoy + 1);
         // Reset consecutive correct answers count
         setScore(0);
 
         //if level is now 4 then navigate to the next game
-        if (level + 1 > 3) {
+        if (levelJoy + 1 > 3) {
           localStorage.setItem("learningJoyCompleted", "true");
           navigate("/congrats");
           return;
@@ -269,6 +280,15 @@ const LearningJoy = () => {
     // Generate a new question
     generateNewQuestion();
   };
+
+  useEffect(() => {
+    localStorage.setItem("score", score);
+    localStorage.setItem("levelJoy", levelJoy);
+    localStorage.setItem(
+      "highestConsecutiveScoreJoy",
+      highestConsecutiveScoreJoy
+    );
+  }, [score, levelJoy, highestConsecutiveScoreJoy]);
 
   return (
     <div className="emotion-main">
@@ -301,7 +321,7 @@ const LearningJoy = () => {
       <div className="emotion-description">
         {currentQuestion && <h3>{currentQuestion.text}</h3>}
         <br />
-        <p>Level: {level}</p>
+        <p>Level: {levelJoy}</p>
         <br />
         Select the correct answer.
       </div>
