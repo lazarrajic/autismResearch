@@ -401,6 +401,24 @@
   gap: 30px;
 }
 
+.modal-incorrect {
+  /* height: 70%; */
+  /* width: 60%; */
+  background-color: #c7d6f4;
+  padding: 125px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50px;
+  z-index: 1000;
+  gap: 30px;
+}
+
 .overlay {
   position: fixed;
   top: 0;

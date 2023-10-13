@@ -20,14 +20,6 @@ const Admin = () => {
   const isJoyCompleted =
     localStorage.getItem("learningJoyCompleted") === "true";
 
-  const [wrongAnswersCount, setWrongAnswersCount] = useState(() => {
-    return parseInt(localStorage.getItem("wrongAnswersCount")) || 0;
-  });
-
-  const [questionsLog, setQuestionsLog] = useState(() => {
-    return JSON.parse(localStorage.getItem("questionsLog")) || [];
-  });
-
   useEffect(() => {
     // Listen for changes in local storage
     const handleStorageChange = () => {
@@ -64,27 +56,14 @@ const Admin = () => {
             {consecutiveScoreJoy}
           </p>
           <p>
-            <span style={{ fontWeight: 600 }}>
-              Number of Incorrect Answers:
-            </span>{" "}
-            {wrongAnswersCount}
-          </p>
-          <p>
             <span style={{ fontWeight: 600 }}>Completion Status: </span>
             {isJoyCompleted ? "✅" : "❌"}
           </p>
         </div>
         <div className="correct-incorrect">
-          {questionsLog.map((entry, index) => (
-            <div key={index}>
-              <p>
-                <strong>Question:</strong> {entry.question}
-              </p>
-              <p>
-                <strong>Answered:</strong> {entry.result}
-              </p>
-            </div>
-          ))}
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. In expedita
+          ipsum a aspernatur porro voluptatum dignissimos laboriosam similique,
+          natus unde.
         </div>
       </div>
     </div>
