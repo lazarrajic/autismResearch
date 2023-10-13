@@ -11,6 +11,7 @@ import ocean from "../../src/image/JoyfulCreativeArt.webp";
 import tiger from "../../src/image/JoyfulCreativeTiger.gif";
 import toys from "../../src/image/JoyfulCreativeToys.webp";
 import correctImage from "../image/correctImage.png";
+import incorrectImage from "../image/incorrectImage.png";
 import { FaArrowAltCircleLeft } from "react-icons/fa";
 import shuffle from "lodash/shuffle";
 
@@ -93,6 +94,18 @@ const LearningJoy = () => {
 
   const [showModal, setShowModal] = useState(false);
   const [modalMessage, setModalMessage] = useState("");
+  const [showIncorrectModal, setShowIncorrectModal] = useState(false);
+  const [incorrectModalMessage, setIncorrectModalMessage] = useState("");
+  const [showLevelUpModal, setShowLevelUpModal] = useState(false);
+  const [levelUpModalMessage, setLevelUpModalMessage] = useState("");
+
+  // State for tracking answered questions and their outcomes
+  const [questionsLog, setQuestionsLog] = useState([]);
+
+  //State fro incorrect answers
+  const [wrongAnswersCount, setWrongAnswersCount] = useState(() => {
+    return parseInt(localStorage.getItem("wrongAnswersCount")) || 0;
+  });
 
   //State for highest consecutive score
   const [highestConsecutiveScoreJoy, setHighestConsecutiveScoreJoy] = useState(
@@ -167,22 +180,6 @@ const LearningJoy = () => {
       : new Set(),
   };
 
-  // Randomly select a question when the component is mounted
-  // useEffect(() => {
-  //   const remainingStories = questions.filter(
-  //     (story) => !answeredStories.includes(story.text)
-  //   );
-
-  //   if (remainingStories.length === 0) {
-  //     navigate("/congrats");
-  //     localStorage.setItem("learningJoyCompleted", "true");
-  //     return;
-  //   }
-
-  //   const randomIndex = Math.floor(Math.random() * remainingStories.length);
-  //   setCurrentQuestion(remainingStories[randomIndex]);
-  // }, [answeredStories]);
-
   const handleBackClick = () => {
     setScore(0);
     navigate("/emotionLearningGame");
@@ -194,22 +191,6 @@ const LearningJoy = () => {
   }
 
   emotionsToDisplay = shuffle(emotionsToDisplay);
-
-  // const generateNewQuestion = () => {
-  //   // Filtering stories that were answered correctly
-  //   const remainingStories = questions.filter(
-  //     (story) => !answeredStories.includes(story.text)
-  //   );
-
-  //   if (remainingStories.length === 0) {
-  //     navigate("/congrats");
-  //     localStorage.setItem("learningJoyCompleted", "true");
-  //     return;
-  //   }
-
-  //   const randomIndex = Math.floor(Math.random() * remainingStories.length);
-  //   setCurrentQuestion(remainingStories[randomIndex]);
-  // };
 
   const generateNewQuestion = () => {
     const remainingStories = questions.filter(
@@ -240,26 +221,25 @@ const LearningJoy = () => {
       setScore(newScore);
       setModalMessage("Correct answer! Keep going!");
       setShowModal(true);
+      setQuestionsLog([
+        ...questionsLog,
+        { question: currentQuestion.text, result: "correct" },
+      ]);
 
       if (newScore > highestConsecutiveScoreJoy) {
         setHighestConsecutiveScoreJoy(newScore);
       }
-
       // Add the answered story to the list of answered stories
       setAnsweredStories([...answeredStories, currentQuestion.text]);
-
-      // I have commented out the correct navigation as it doesnt hold state of scores when navigating back and we dont have a DB right now to store the scores.
-      // navigate("/correct", {
-      //   state: {
-      //     emotion: currentQuestion.correctEmotion,
-      //   },
-      // });
       // Check for consecutive correct answers
       if (score + 1 >= 3) {
         // If there are 3 consecutive correct answers, level up
         setLevelJoy(levelJoy + 1);
         // Reset consecutive correct answers count
         setScore(0);
+        setLevelUpModalMessage("Congratulations! You leveled up!");
+        setShowModal(false);
+        setShowLevelUpModal(true);
 
         //if level is now 4 then navigate to the next game
         if (levelJoy + 1 > 3) {
@@ -267,15 +247,20 @@ const LearningJoy = () => {
           navigate("/congrats");
           return;
         }
+      } else {
+        setShowModal(true); // Show the "Correct" modal only if not leveling up
       }
     } else {
       // Incorrect answer
       setScore(0); // Reset consecutive correct answers count on incorrect answer
-      navigate("/incorrect", {
-        state: {
-          emotion: currentQuestion.correctEmotion,
-        },
-      });
+      const newWrongScore = wrongAnswersCount + 1;
+      setWrongAnswersCount(newWrongScore);
+      setIncorrectModalMessage("Oops! That's not right. Try again!");
+      setShowIncorrectModal(true);
+      setQuestionsLog([
+        ...questionsLog,
+        { question: currentQuestion.text, result: "incorrect" },
+      ]);
     }
     // Generate a new question
     generateNewQuestion();
@@ -288,7 +273,15 @@ const LearningJoy = () => {
       "highestConsecutiveScoreJoy",
       highestConsecutiveScoreJoy
     );
-  }, [score, levelJoy, highestConsecutiveScoreJoy]);
+    localStorage.setItem("wrongAnswersCount", wrongAnswersCount);
+    localStorage.setItem("questionsLog", JSON.stringify(questionsLog));
+  }, [
+    score,
+    levelJoy,
+    highestConsecutiveScoreJoy,
+    wrongAnswersCount,
+    questionsLog,
+  ]);
 
   return (
     <div className="emotion-main">
@@ -297,12 +290,64 @@ const LearningJoy = () => {
           <div className="overlay"></div>
           <div className="modal">
             <img className="modal-image" src={correctImage} alt="correct" />
-            <span style={{ fontSize: "30px", fontWeight: "600" }}>
+            <span
+              style={{
+                fontSize: "30px",
+                fontWeight: "600",
+                textAlign: "center",
+              }}
+            >
               {modalMessage}
             </span>
             <button
-              style={{ border: "none", padding: "10px" }}
+              style={{ border: "none", padding: "10px", cursor: "pointer" }}
               onClick={() => setShowModal(false)}
+            >
+              Close
+            </button>
+          </div>
+        </>
+      )}
+      {showIncorrectModal && (
+        <>
+          <div className="overlay"></div>
+          <div className="modal-incorrect">
+            <img className="modal-image" src={incorrectImage} alt="incorrect" />{" "}
+            <span
+              style={{
+                fontSize: "30px",
+                fontWeight: "600",
+                textAlign: "center",
+              }}
+            >
+              {incorrectModalMessage}
+            </span>
+            <button
+              style={{ border: "none", padding: "10px", cursor: "pointer" }}
+              onClick={() => setShowIncorrectModal(false)}
+            >
+              Close
+            </button>
+          </div>
+        </>
+      )}
+      {showLevelUpModal && (
+        <>
+          <div className="overlay"></div>
+          <div className="modal">
+            <img className="modal-image" src={correctImage} alt="incorrect" />{" "}
+            <span
+              style={{
+                fontSize: "30px",
+                fontWeight: "600",
+                textAlign: "center",
+              }}
+            >
+              {levelUpModalMessage}
+            </span>
+            <button
+              style={{ border: "none", padding: "10px", cursor: "pointer" }}
+              onClick={() => setShowLevelUpModal(false)}
             >
               Close
             </button>
@@ -321,7 +366,15 @@ const LearningJoy = () => {
       <div className="emotion-description">
         {currentQuestion && <h3>{currentQuestion.text}</h3>}
         <br />
-        <p>Level: {levelJoy}</p>
+        <p
+          style={{
+            fontSize: "25px",
+            fontWeight: "800",
+            textShadow: "0 0 5px #41414193, 0 0 15px #f0f0f0, 0 0 20px #f0f0f0",
+          }}
+        >
+          Level: {levelJoy}
+        </p>
         <br />
         Select the correct answer.
       </div>
